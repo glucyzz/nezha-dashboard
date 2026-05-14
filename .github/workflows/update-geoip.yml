@@ -39,7 +39,9 @@ jobs:
         run: |
           rm -f pkg/geoip/geoip.db
           wget -qO pkg/geoip/geoip.db \
-            "https://ipinfo.io/data/free/country.mmdb?token=${IPINFO_TOKEN}"
+            "https://ipinfo.io/data/ipinfo_lite.mmdb?token=${IPINFO_TOKEN}"
+          [ $(stat -c%s pkg/geoip/geoip.db) -gt 100000 ] || \
+            { echo "GeoIP database download failed"; exit 1; }
 
       - name: Set up Go
         uses: actions/setup-go@v5
