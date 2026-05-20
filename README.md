@@ -1,3 +1,9 @@
+## ipinfo服务端部署脚本
+```
+bash <(wget -qO- https://raw.githubusercontent.com/glucyzz/nezha-dashboard/main/dashboard.sh)
+```
+
+
 ## 更新geoip.db
 
 ### 首次执行
